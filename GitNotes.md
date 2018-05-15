@@ -58,6 +58,66 @@ $ git commit -a # commit without 'add'
 $ git commit -am <message> # Not open editor
 ```
 ### 3.3 Interactive Staging Session
+``` bash
+$ git add -p 
+#show more detail about the change
+```
+Command	Action  | Function 
+---- | ----------
+y |	Stage the chunk.
+n |	Ignore the chunk.
+s |	Split the chunk into smaller chunks.
+e |	Edit the chunk manually.
+q |	Quit the interactive staging session.
+g |	Select a chunk to go to.
+a |	Stage the Chunk and all others in the file.
+d |	Do not stage the chunk or any of the others in the file.
+/ |	Search for chunk using regex.
+j |	Leave current chunk undecided and move to the next undecided chunk.
+J |	Leave current chunk undecided and move to the next chunk.
+k |	Leave current chunk undecided and move to the previous undecided chunk.
+K |	Leave current chunk undecided and move to the previous chunk.
+? |	Print all of the possible commands to the console.
+
 ### 3.4 Git Stash
+``` Bash
+# after making some changes, no matter staged or not
+
+# stash changes
+# 'save <message> is optional
+$ git stash save <message> 
+
+# use -p tag to 
+
+```
+flag | function
+-|-
+-p | open an interactive session
+-u | stash new and unstaged files
+-a | stash all, including ignored files
+
+``` Bash
+# show the stash list
+$ git stash list
+
+# show differences between stash and current working directory
+$ git stash show
+$ git stash show -p
+
+# <Stash Identifier> looks like stash@{0}. It will be showed in stash list.
+
+# The applied stash will remained in the list
+$ git stash apply <Stash Identifier>
+
+# command [pop] will add the stashed changes and remove if from the stash list
+$ git stash pop <Stash Identifier>
+
+# [drop] will delete a specific stash. 
+$ git stash drop <Stash Identifier>
+
+# clear all the stashes.
+$ git stash clear
+``` 
+
 
 
